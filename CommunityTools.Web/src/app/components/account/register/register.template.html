@@ -1,0 +1,78 @@
+<div class="container">
+	<div class="row main">
+		<div class="panel-heading">
+			<div class="panel-title text-center">
+				<h1 class="title">Register</h1>
+				<hr>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-offset-4 col-md-4">
+			<form class="form-horizontal" [ngFormModel]="registerForm">
+
+				<div class="form-group" [class.has-error]="emailControl.dirty && !emailControl.valid">
+					<label for="email" class="cols-sm-2 control-label">Your Email</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="email" id="email" ngControl="emailControl" [(ngModel)]="registrationRequest.UserName" placeholder="Enter your Email">
+						</div>
+						<span class="text-danger" *ngIf="emailControl.dirty && !emailControl.valid">Email is required</span>
+					</div>
+				</div>
+
+				<div class="form-group" [class.has-error]="firstnameControl.dirty && !firstnameControl.valid">
+					<label for="name" class="cols-sm-2 control-label">Your Firstname</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="firstName" id="firstName" ngControl="firstnameControl" [(ngModel)]="registrationRequest.FirstName" placeholder="Enter your Firstname">
+						</div>
+						<span class="text-danger" *ngIf="firstnameControl.dirty && !firstnameControl.valid">Firstname is required</span>
+					</div>
+				</div>
+
+				<div class="form-group" [class.has-error]="lastnameControl.dirty && !lastnameControl.valid">
+					<label for="name" class="cols-sm-2 control-label">Your Surname</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+							<input type="text" class="form-control" name="lastName" id="lastName" ngControl="lastnameControl" [(ngModel)]="registrationRequest.LastName" placeholder="Enter your Surname">
+						</div>
+						<span class="text-danger" *ngIf="lastnameControl.dirty && !lastnameControl.valid">Surname is required</span>
+					</div>
+				</div>
+
+				<div class="form-group" [class.has-error]="passwordControl.dirty && !passwordControl.valid">
+					<label for="password" class="cols-sm-2 control-label">Password</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+							<input type="password" class="form-control" name="password" id="password" ngControl="passwordControl" [(ngModel)]="registrationRequest.Password" placeholder="Enter your Password">
+						</div>
+						<span class="text-danger" *ngIf="passwordControl.dirty && !passwordControl.valid">Password is required</span>
+					</div>
+				</div>
+
+				<div class="form-group" [class.has-error]="confirmpasswordControl.dirty && !confirmpasswordControl.valid">
+					<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+							<input type="password" class="form-control" name="confirmPassword" id="confirmPassword" ngControl="confirmpasswordControl" placeholder="Confirm your Password">
+						</div>
+						<span class="text-danger" *ngIf="confirmpasswordControl.dirty && !confirmpasswordControl.valid">Confirm password is required</span>
+					</div>
+				</div>
+
+				<div class="form-group ">
+					<button type="button" class="btn btn-primary btn-lg btn-block login-button" (click)="RegisterNewUser()" [disabled]="!registerForm.valid">Register</button>
+				</div>
+
+				<div class="alert alert-success" *ngIf="success">
+					User successfully created!!
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>

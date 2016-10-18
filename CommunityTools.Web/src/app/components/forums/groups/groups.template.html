@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row" *ngIf="allowEdit">
+    <div class="col-xs-12">
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="newGroup.Title" />
+        <button type="button" class="btn btn-success" (click)="addGroup()">Add Group</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngFor="let group of forumGroups">
+    <div class="col-xs-12">
+      <h2>
+        <a class="text-bblue2" href="javascript:void(0)" (click)="viewForums(group)">
+          {{group.Title}}
+        </a>
+      </h2>
+      <table class="table table-striped table-responsive table-padded">
+        <thead>
+          <tr class="bblue">
+            <th class="col-lg-8">
+              Forums
+            </th>
+            <th class="col-lg-1 text-center">
+              Threads
+            </th>
+            <th class="col-lg-1 text-center">
+              Posts
+            </th>
+            <th class="col-lg-2">
+              Last reply
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let forum of group.Forums">
+            <td>
+              <a href="javascript:void(0)" (click)="viewForum(group,forum)">{{forum.Title}}</a>
+              <p>
+                {{forum.Description}}
+              </p>
+            </td>
+            <td class="text-center">
+              {{forum.ThreadCount}}
+            </td>
+            <td class="text-center">
+              {{forum.PostCount}}
+            </td>
+            <td>
+              <lastPost [dataItem]="forum.LastPost"></lastPost>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CEDBF809-B0A9-46E0-ADB0-EA5D50F78D83}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommunityTools.BusinessProviders.Users</RootNamespace>
+    <AssemblyName>CommunityTools.BusinessProviders.Users</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.0.0\lib\net451\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FlexProviders">
+      <HintPath>..\libraries\production\memflex\FlexProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IUserManager.cs" />
+    <Compile Include="Mapping\LoginResultMappingProfile.cs" />
+    <Compile Include="Mapping\RegistrationRequestMappingProfile.cs" />
+    <Compile Include="Mapping\RoleMappingProfile.cs" />
+    <Compile Include="Mapping\TokenMappingProfile.cs" />
+    <Compile Include="Mapping\UserMappingProfile.cs" />
+    <Compile Include="UserManager.cs" />
+    <Compile Include="UsersBusinessProviderModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommunityTools.BusinessProvider.Common\CommunityTools.BusinessProvider.Common.csproj">
+      <Project>{3D61DD53-46DA-4ED0-8F4F-138493C5B955}</Project>
+      <Name>CommunityTools.BusinessProvider.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityTools.BusinessProvider.Models\CommunityTools.BusinessProvider.Models.csproj">
+      <Project>{499DC3AB-EFEA-4EB4-AAE8-F4DFF172938E}</Project>
+      <Name>CommunityTools.BusinessProvider.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityTools.Common\CommunityTools.Common.csproj">
+      <Project>{2196629a-05a3-4558-bd8a-3f50e3896ec2}</Project>
+      <Name>CommunityTools.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityTools.DataAccess.Common\CommunityTools.DataAccess.Common.csproj">
+      <Project>{9D85017E-1F09-4F9C-9FA6-47981F37ACC6}</Project>
+      <Name>CommunityTools.DataAccess.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityTools.DataAccess.Users\CommunityTools.DataAccess.Users.csproj">
+      <Project>{D4638E57-04A1-45B2-BEF1-721B75A00C00}</Project>
+      <Name>CommunityTools.DataAccess.Users</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommunityTools.Domain\CommunityTools.Domain.csproj">
+      <Project>{40707319-46ef-434d-a318-858f1f5cede9}</Project>
+      <Name>CommunityTools.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

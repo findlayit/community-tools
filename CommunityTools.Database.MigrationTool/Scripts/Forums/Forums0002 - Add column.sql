@@ -1,0 +1,1 @@
+﻿alter table Forum add [Description] nvarchar(1000);

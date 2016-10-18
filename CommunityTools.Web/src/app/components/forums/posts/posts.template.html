@@ -1,0 +1,69 @@
+<div class="container">
+  <div *ngIf="forumThread">
+    <ol class="breadcrumb">
+      <li><a href="/forums">All forums</a></li>
+      <li>
+        <a href="/forums/{{groupName}}"></a>
+      </li>
+      <li><a href="/forums/{{groupName}}/{{forumName}}">{{forumThread.Forum.Title}}</a></li>
+      <li class="active">{{forumThread.Title}}</li>
+    </ol>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="text-bblue2">
+          Topic: {{forumThread.Title}}
+        </h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <button type="button" class="btn btn-success pull-right" (click)="changeNewPostVisible(true)" [style.display]="newPostVisible?'none':'inherit'" *ngIf="allowEdit"><i class="icon icon-plus"></i>Reply</button>
+      </div>
+    </div>
+    <!-- New post -->
+    <div class="row" [style.display]="newPostVisible?'inherit':'none'" *ngIf="newPost">
+      <div class="col-xs-12">
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h4 class="title">New post</h4>
+          </div>
+          <div class="panel-body">
+            <div class="form">
+              <div class="form-group">
+                <textarea htmlEditor class="form-control" id="txtPost" name="txtPost" [(ngModel)]="newPost.Content"></textarea>
+              </div>
+              <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="addPost()">Add</button>
+                <button type="button" class="btn btn-default" (click)="changeNewPostVisible(false)">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Post list -->
+    <div class="row top10" [style.display]="newPostVisible?'none':'inherit'">
+      <div class="col-xs-12">
+        <table class="table table-striped table-responsive table-padded" *ngIf="forumPostList">
+          <tbody>
+            <tr *ngFor="let post of forumPostList">
+              <td class="col-lg-2">
+                <strong>Name</strong>
+                <span>Champion</span>
+                <img src="http://placehold.it/120x120">
+              </td>
+              <td class="col-lg-10">
+                <div [innerHTML]="post.Content">
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

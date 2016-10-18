@@ -1,0 +1,82 @@
+<div class="container">
+  <div *ngIf="forum">
+
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="text-bblue2">
+          {{forum.Title}}
+      </h2>
+        <p>
+          {{forum.Description}}
+        </p>
+        <a href="javascript:void(0)" class="pull-right" (click)="changeNewThreadVisible(true)" [style.display]="newThreadVisible?'none':'inherit'" *ngIf="allowEdit"><i class="icon icon-plus"></i> New thread</a>
+      </div>
+    </div>
+
+    <!-- New thread -->
+    <div class="row" [style.display]="newThreadVisible?'inherit':'none'" *ngIf="newThread">
+      <div class="col-xs-12">
+
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h4 class="title">New thread</h4>
+          </div>
+          <div class="panel-body">
+            <div class="form">
+              <div class="form-group">
+                <label class="control-label" for="txtThreadTitle">Title</label>
+                <input type="text" class="form-control" id="txtThreadTitle" name="txtThreadTitle" [(ngModel)]="newThread.Title" />
+              </div>
+              <div class="form-group">
+                <label class="control-label" for="txtThreadDescription">Post</label>
+                <textarea htmlEditor id="txtThreadDescription" name="txtThreadDescription" [(ngModel)]="newThread.ForumPosts[0].Content"></textarea>
+              </div>
+              <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="addThread()">Add</button>
+                <button type="button" class="btn btn-default" (click)="changeNewThreadVisible(false)">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Don't display thread list if in new thread mode -->
+    <div class="row" [style.display]="newThreadVisible?'none':'inherit'" *ngIf="forum">
+      <div class="col-xs-12">
+        <table class="table table-striped table-responsive table-padded">
+          <thead>
+            <tr class="bblue">
+              <th class="col-lg-8">
+                Thread
+              </th>
+              <th class="col-lg-1 text-center">
+                Posts
+              </th>
+              <th class="col-lg-3">
+                Last reply
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let thread of forumThreads">
+              <td>
+                <a href="javascript:void(0)" (click)="viewThread(thread)">{{thread.Title}}</a>
+                <firstPost [dataItem]="thread.FirstPost"></firstPost>
+              </td>
+              <td class="text-center">
+                {{thread.PostCount}}
+              </td>
+              <td>
+                <lastPost [dataItem]="thread.LastPost"></lastPost>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+</div>
