@@ -3,7 +3,7 @@ export class IRegistrationRequest {
   public Password: string;
   public FirstName: string;
   public LastName: string;
-  public RoleName: number;
+  public RoleName: string;
 
   constructor(roleName: string) {
     this.UserName = "";
