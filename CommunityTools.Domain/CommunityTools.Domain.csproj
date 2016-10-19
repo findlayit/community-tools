@@ -55,6 +55,10 @@
     <Compile Include="Forums\ForumThreadEntity.cs" />
     <Compile Include="IBaseEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Surveys\QuestionEntity.cs" />
+    <Compile Include="Surveys\QuestionAnswerEntity.cs" />
+    <Compile Include="Surveys\QuetionAnswerOptionEntity.cs" />
+    <Compile Include="Surveys\SurveyEntity.cs" />
     <Compile Include="Users\LoginResult.cs" />
     <Compile Include="Users\RegistrationRequest.cs" />
     <Compile Include="Users\RoleEntity.cs" />

@@ -53,6 +53,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunityTools.Proxy", "Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunityTools.Services.Common", "CommunityTools.Services.Common\CommunityTools.Services.Common.csproj", "{2E12F408-757B-4CF6-BC06-F7AF9E9F6A35}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommunityTools.DataAccess.Surveys", "CommunityTools.DataAccess.Surveys\CommunityTools.DataAccess.Surveys.csproj", "{CCB1EF50-8884-4422-B709-14B7FA737435}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +133,10 @@ Global
 		{2E12F408-757B-4CF6-BC06-F7AF9E9F6A35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E12F408-757B-4CF6-BC06-F7AF9E9F6A35}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E12F408-757B-4CF6-BC06-F7AF9E9F6A35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCB1EF50-8884-4422-B709-14B7FA737435}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCB1EF50-8884-4422-B709-14B7FA737435}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCB1EF50-8884-4422-B709-14B7FA737435}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCB1EF50-8884-4422-B709-14B7FA737435}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -153,5 +159,6 @@ Global
 		{E11FA1FE-273D-4289-87AD-34BFE0845E97} = {48230FC9-50D8-4CE2-A37A-DE1CD09E0EBD}
 		{38CE2831-DAC9-44BA-BC62-847447CF29BC} = {FFE22324-4069-4CBE-ABC5-AB56EAADEC98}
 		{2E12F408-757B-4CF6-BC06-F7AF9E9F6A35} = {E0D606BA-7298-4F76-9C71-84A95F93739C}
+		{CCB1EF50-8884-4422-B709-14B7FA737435} = {44B8EFAC-EC8F-4CC8-9BBE-DDCE4A17A4A2}
 	EndGlobalSection
 EndGlobal
