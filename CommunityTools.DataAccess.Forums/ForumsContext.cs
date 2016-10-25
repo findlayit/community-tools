@@ -3,7 +3,7 @@ using CommunityTools.Domain.Forums;
 
 namespace CommunityTools.DataAccess.Forums
 {
-    public class ForumsContext:DbContext
+    public class ForumsContext : DbContext
     {
         public ForumsContext() : base("ForumsContext")
         {
@@ -17,6 +17,7 @@ namespace CommunityTools.DataAccess.Forums
         public DbSet<ForumEntity> Forums { get; set; }
         public DbSet<ForumThreadEntity> ForumThreads { get; set; }
         public DbSet<ForumPostEntity> ForumPosts { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
