@@ -9,7 +9,7 @@ namespace CommunityTools.BusinessProvider.Models.Forums
         public string UrlName { get; set; }
         public int ForumId { get; set; }
         public Forum Forum { get; set; }
-        //public virtual List<ForumPost> ForumPosts { get; set; }
+        public virtual List<ForumPost> ForumPosts { get; set; }
         public int PostCount { get; set; }
         public ForumPost FirstPost { get; set; }
         public ForumPost LastPost { get; set; }
