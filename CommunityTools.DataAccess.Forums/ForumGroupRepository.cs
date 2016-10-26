@@ -43,15 +43,19 @@ namespace CommunityTools.DataAccess.Forums
                         ? posts.First(p => p.ForumId == o.Id).LastPost
                         : null
                 });
-            
+
 
             return list.ToList().Select(o => new ForumGroupEntity()
             {
+                Id = o.Id,
+                CreatedBy = o.CreatedBy,
+                CreatedDateTime = o.CreatedDateTime,
+                IsDeleted = o.IsDeleted,
                 Title = o.Title,
                 UrlName = o.UrlName,
                 Forums = forums.Where(x => x.ForumGroupId == o.Id).ToList()
             })
-            .OrderBy(x => x.Id);
+                .OrderBy(x => x.Id);
         }
 
         public ForumGroupEntity FindByUrl(string urlName)
