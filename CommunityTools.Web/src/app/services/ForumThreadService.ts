@@ -42,7 +42,6 @@ export class ForumThreadService {
   Add(entity: IForumThread): Observable<any> {
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    debugger;
     var params = JSON.stringify(entity);
     return this.http.post(this.appSettings.ProxyApiUrl() + '/forumthreads', params, { withCredentials: true, headers: headers });
 
